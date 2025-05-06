@@ -13,4 +13,6 @@ seaborn
 squarify
 geopandas
 plotly
+streamlit
+
 
