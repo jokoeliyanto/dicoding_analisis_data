@@ -1,2 +1,5 @@
 [theme]
 base="light"
+
+[server]
+python_version = "3.10"
