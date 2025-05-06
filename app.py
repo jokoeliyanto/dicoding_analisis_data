@@ -14,7 +14,7 @@ st.text("Dashboard for analyzing late delivery and its impact for customer revie
 st.text("By: Joko Eliyanto")
 
 
-df_late = pd.read_csv('df_late.csv')
+df_late = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/df_late.csv')
 
 fig_pie = px.pie(
     df_late,
@@ -30,7 +30,7 @@ fig_pie = px.pie(
 )
 
 
-df_monthly_status = pd.read_csv('df_monthly_status.csv')
+df_monthly_status = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/df_monthly_status.csv')
 
 fig_bar = px.bar(
     df_monthly_status,
@@ -48,7 +48,7 @@ fig_bar = px.bar(
 fig_bar.update_layout(barmode='stack', xaxis_tickangle=-45)
 
 
-df_top10_city_status_long = pd.read_csv('df_top10_city_status_long.csv')
+df_top10_city_status_long = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/df_top10_city_status_long.csv')
 fig_city = px.bar(
     df_top10_city_status_long,
     x='order_count',
@@ -69,7 +69,7 @@ fig_city.update_layout(
     legend_title='Delivery Status'
 )
 
-df_late_and_reviews = pd.read_csv('df_late_and_reviews.csv')
+df_late_and_reviews = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/df_late_and_reviews.csv')
 
 fig_scatter = px.scatter(
     df_late_and_reviews,
@@ -95,7 +95,7 @@ st.plotly_chart(fig_bar, use_container_width=True)
 
 st.plotly_chart(fig_scatter, use_container_width=True)
 
-rfm = pd.read_csv('rfm.csv')
+rfm = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/rfm.csv')
 
 segment_counts = rfm['Segment'].value_counts()
 labels = segment_counts.index.tolist()
@@ -195,7 +195,7 @@ def load_world():
 
 world = load_world()
 
-df_state_grouped = pd.read_csv('df_state_grouped.csv')
+df_state_grouped = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/df_state_grouped.csv')
 
 # Plot
 fig = px.scatter_geo(
@@ -225,7 +225,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 st.markdown("#### Clustering")
-grouped = pd.read_csv('grouped.csv')
+grouped = pd.read_csv('https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/grouped.csv')
 
 fig = px.bar(
     grouped.melt(id_vars='complexity_group', value_vars=['shipping_late_rate', 'delivered_late_rate']),
