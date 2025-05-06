@@ -1,0 +1,21 @@
+customer_city,delivered_late,order_count
+sao paulo,On-time Delivery,14598
+rio de janeiro,On-time Delivery,6102
+belo horizonte,On-time Delivery,2607
+brasilia,On-time Delivery,1984
+curitiba,On-time Delivery,1447
+campinas,On-time Delivery,1301
+porto alegre,On-time Delivery,1221
+salvador,On-time Delivery,1037
+guarulhos,On-time Delivery,1117
+sao bernardo do campo,On-time Delivery,881
+sao paulo,Late Deliveries,942
+rio de janeiro,Late Deliveries,780
+belo horizonte,Late Deliveries,166
+brasilia,Late Deliveries,147
+curitiba,Late Deliveries,74
+campinas,Late Deliveries,143
+porto alegre,Late Deliveries,158
+salvador,Late Deliveries,208
+guarulhos,Late Deliveries,72
+sao bernardo do campo,Late Deliveries,57
