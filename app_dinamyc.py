@@ -18,7 +18,7 @@ st.text("By: Joko Eliyanto")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("cleaned_and_joined_data.csv", parse_dates=["order_purchase_timestamp"])
+    df = pd.read_csv("https://raw.githubusercontent.com/jokoeliyanto/dicoding_analisis_data/refs/heads/main/cleaned_and_joined_data_2017.csv", parse_dates=["order_purchase_timestamp"])
     df["order_purchase_timestamp"] = pd.to_datetime(df["order_purchase_timestamp"])
     return df
 
@@ -36,10 +36,20 @@ start_date, end_date = st.sidebar.date_input(
     max_value=max_date.date()
 )
 
-# Filter data berdasarkan tanggal
+# Sidebar: Pilih kategori produk dengan checkbox satu per satu
+st.sidebar.header("Filter Kategori Produk (Checkbox)")
+with st.sidebar.expander("Pilih kategori produk:"):
+    product_categories = sorted(df["product_category_name_english"].dropna().unique())
+    selected_categories = []
+    for category in product_categories:
+        if st.checkbox(category, value=True):
+            selected_categories.append(category)
+
+# Filter data berdasarkan tanggal dan kategori
 filtered_df = df[
     (df["order_purchase_timestamp"].dt.date >= start_date) &
-    (df["order_purchase_timestamp"].dt.date <= end_date)
+    (df["order_purchase_timestamp"].dt.date <= end_date) &
+    (df["product_category_name_english"].isin(selected_categories))
 ]
 
 #----- Pie Chart (Plotly) Distribusi Status Pengiriman -----
@@ -82,7 +92,6 @@ df_monthly_status['delivered_late'] = df_monthly_status['delivered_late'].map({
     True: 'Late Deliveries'
 })
 
-df_monthly_status.to_csv("df_monthly_status.csv", index=False)
 
 # Buat stacked bar chart dengan Plotly
 fig_bar = px.bar(
